@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="my-4">Buat Pokemon</h2>
+        <h2 class="my-2" style="color: white; font-weight: bold">Buat Pokemon</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">

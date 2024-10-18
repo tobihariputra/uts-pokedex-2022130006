@@ -62,8 +62,11 @@ class PokemonController extends Controller
      */
     public function show(string $id)
     {
-        $pokemon = Pokemon::findOrFail($id);
-        return view('pokemon.show', compact('pokemon'));
+        $pokemon = Pokemon::find($id);
+        $previous = Pokemon::where('id', '<', $pokemon->id)->orderBy('id', 'desc')->first();
+        $next = Pokemon::where('id', '>', $pokemon->id)->orderBy('id', 'asc')->first();
+
+        return view('pokemon.show', compact('pokemon', 'previous', 'next'));
     }
 
     /**
@@ -105,7 +108,7 @@ class PokemonController extends Controller
 
         $pokemon->update($validated);
 
-        return redirect()->route('pokemon.index')->with('success', 'Pokemon berhasil diubah.');
+        return redirect()->route('pokemon.index')->with('success', 'Pokemon berhasil diupdate.');
     }
 
     /**

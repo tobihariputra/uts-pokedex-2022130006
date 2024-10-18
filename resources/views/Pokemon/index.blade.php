@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="my-4">Daftar Pokemon</h2>
+        <h2 class="my-2" style="color: white; font-weight: bold">Daftar Pokemon</h2>
 
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,8 +15,8 @@
 
         <a href="{{ route('pokemon.create') }}" class="btn btn-success mb-3">Buat Pokemon</a>
         <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-primary">
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -40,7 +40,7 @@
                             <td>{{ $pokemon->primary_type }}</td>
                             <td>{{ $pokemon->hp + $pokemon->attack + $pokemon->defense }}</td>
                             <td>
-                                <a href="{{ route('pokemon.edit', $pokemon->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ route('pokemon.edit', $pokemon->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 <form action="{{ route('pokemon.destroy', $pokemon->id) }}" method="POST"
                                     style="display:inline;" onsubmit="return confirm('Apakah Anda yakin?')">
                                     @csrf

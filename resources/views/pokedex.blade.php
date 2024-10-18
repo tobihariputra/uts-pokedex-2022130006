@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-4">
-        <h2 class="mb-4">Pokedex</h2>
+    <div class="container my-2">
+        <h2 class="mb-4" style="color: white; font-weight: bold">Pokedex</h2>
 
-        <div class="row g-4">
+        <div class="row g-2">
             @forelse ($pokemons as $pokemon)
                 <div class="col-4 col-md-4 col-lg-4">
-                    <div class="card h-100">
+                    <div class="card h-100" style="max-width: 475px; width: 100%; margin: 0 auto">
                         @if ($pokemon->photo)
                             <a href="{{ route('pokemon.show', $pokemon->id) }}" class="text-decoration-none">
                                 <img src="{{ asset('storage/' . $pokemon->photo) }}" class="card-img-top"
@@ -15,7 +15,7 @@
                             </a>
                         @else
                             <a href="{{ route('pokemon.show', $pokemon->id) }}" class="text-decoration-none">
-                                <img src="https://placehold.co/200" class="card-img-top" alt="No Image Available">
+                                <img src="https://placehold.co/475" class="card-img-top" alt="No Image Available">
                             </a>
                         @endif
                         <div class="card-body">
@@ -23,7 +23,8 @@
                                 #{{ str_pad($pokemon->id, 4, '0', STR_PAD_LEFT) }}
                             </h5>
                             <h1 class="card-title">
-                                <a href="{{ route('pokemon.show', $pokemon->id) }}" class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                <a href="{{ route('pokemon.show', $pokemon->id) }}"
+                                    class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
                                     {{ $pokemon->name }}
                                 </a>
                             </h1>

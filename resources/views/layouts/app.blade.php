@@ -9,11 +9,30 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        .navbar-custom {
+            background-color: #004080;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #cce7ff !important;
+        }
+
+        .navbar-custom .nav-link.active {
+            color: #cce7ff !important;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top my-3">
+        <nav class="navbar navbar-expand-md navbar-custom shadow-sm sticky-top py-3">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Pokedex
@@ -87,6 +106,26 @@
 
         <main class="py-4">
             @yield('content')
+            <style>
+                body {
+                    background-image: url({{ asset('images/background.jpg') }});
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                }
+
+                .card {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border: 1px solid black;
+                    border-radius: 8px;
+                }
+
+                .card-title,
+                .card-body {
+                    color: #004080;
+                }
+            </style>
         </main>
     </div>
 </body>
