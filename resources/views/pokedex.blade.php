@@ -38,6 +38,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Belum ada data Pokemon</h5>
                             <p class="card-text">Data Pokemon belum tersedia. Silakan tambahkan data terlebih dahulu.</p>
+                            <a href="{{ route('pokemon.create') }}" class="btn btn-success mb-3">Buat Pokemon</a>
                         </div>
                     </div>
                 </div>

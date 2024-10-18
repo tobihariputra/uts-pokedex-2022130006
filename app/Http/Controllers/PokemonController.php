@@ -63,9 +63,8 @@ class PokemonController extends Controller
     public function show(string $id)
     {
         $pokemon = Pokemon::find($id);
-        $previous = Pokemon::where('id', '<', $pokemon->id)->orderBy('id', 'desc')->first();
-        $next = Pokemon::where('id', '>', $pokemon->id)->orderBy('id', 'asc')->first();
-
+        $previous = $pokemon ? Pokemon::where('id', '<', $pokemon->id)->orderBy('id', 'desc')->first() : null;
+        $next = $pokemon ? Pokemon::where('id', '>', $pokemon->id)->orderBy('id', 'asc')->first() : null;
         return view('pokemon.show', compact('pokemon', 'previous', 'next'));
     }
 
